@@ -1,43 +1,44 @@
 import React, { FunctionComponent } from 'react'
 import styled from '@emotion/styled'
-import ProfileImage from 'components/Main/ProfileImage'
 
 const Background = styled.div`
   width: 100%;
-  background-color: #070d0d;
-  color: #ffffff;
+  color: #070d0d;
 `
 
 const Wrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
   width: 768px;
-  height: 300px;
+  height: 100px;
   margin: 0 auto;
 `
 
-const SubTitle = styled.div`
-  font-size: 18px;
-  font-weight: 400;
+const TitleDiv = styled.div`
+  padding-top: 20px;
+  display: flex;
+  font-size: 20px;
 `
 
 const Title = styled.div`
-  margin-top: 5px;
-  font-size: 35px;
   font-weight: 700;
+  padding-right: 5px;
+`
+
+const SubTitle = styled.div`
+  font-weight: 600;
+  color: #56fca2;
 `
 
 const Introduction: FunctionComponent = () => {
   return (
     <Background>
       <Wrapper>
-        <ProfileImage />
-        <div>
-          <Title>개발나무 심기</Title>
-          <SubTitle>할 수 있을 것만 같습니다.</SubTitle>
-        </div>
+        <TitleDiv>
+          <Title>Dev</Title>
+          <SubTitle>Namu</SubTitle>
+        </TitleDiv>
       </Wrapper>
     </Background>
   )

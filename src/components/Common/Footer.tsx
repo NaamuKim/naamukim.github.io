@@ -13,7 +13,7 @@ const Footer: FunctionComponent = () => {
   return (
     <FooterWrapper>
       Thank You for Visiting My Blog 😊
-      <br />© 2021 JiwonKim, Powered By Gatsby.
+      <br />© 2021 Kim JiWon.
     </FooterWrapper>
   )
 }

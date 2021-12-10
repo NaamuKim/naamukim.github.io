@@ -12,6 +12,24 @@ const globalStyle = css`
   }
 `
 
+const TextStyle = css`
+  font-size: 18px;
+  font-weight: 700;
+  color: gray;
+`
+
+const Text1 = styled.div<{ disable: boolean }>`
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: ${({ disable }) => (disable ? 'line-through' : 'none')};
+`
+
+const Text2 = styled('div')<{ disable: boolean }>(({ disable }) => ({
+  fontSize: '15px',
+  color: 'blue',
+  textDecoration: disable ? 'line-through' : 'none',
+}))
+
 type InfoPageProps = {
   data: {
     site: {
@@ -34,9 +52,9 @@ const InfoPage: FunctionComponent<InfoPageProps> = function ({
   return (
     <div>
       <Global styles={globalStyle} />
-      {title}
-      {description}
-      {author}
+      <div css={TextStyle}>{title}</div>
+      <Text1 disable={true}>{description}</Text1>
+      <Text2 disable={true}>{author}</Text2>
     </div>
   )
 }

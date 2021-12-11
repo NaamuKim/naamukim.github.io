@@ -4,11 +4,12 @@ import GlobalStyle from 'components/Common/GlobayStyle'
 import Introduction from 'components/Main/Introduction'
 import Footer from 'components/Common/Footer'
 import CategoryList from 'components/Main/CategoryList'
+import PostList from 'components/Main/PostList'
 
 const CATEGORY_LIST = {
   All: 3,
   React: 2,
-  PWA: 2,
+  PWA: 1,
 }
 
 const Container = styled.div`
@@ -17,12 +18,13 @@ const Container = styled.div`
   height: 100%;
 `
 
-const IndexPage: FunctionComponent = function () {
+const IndexPage: FunctionComponent = () => {
   return (
     <Container>
       <GlobalStyle />
       <Introduction />
       <CategoryList selectedCategory="All" categoryList={CATEGORY_LIST} />
+      <PostList />
       <Footer />
     </Container>
   )

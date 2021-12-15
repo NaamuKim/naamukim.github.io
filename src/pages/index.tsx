@@ -7,6 +7,7 @@ import CategoryList from 'components/Main/CategoryList'
 import PostList from 'components/Main/PostList'
 import { graphql } from 'gatsby'
 import { IGatsbyImageData } from 'gatsby-plugin-image'
+import queryString, { ParsedQuery } from 'query-string'
 
 export type PostFrontmatterType = {
   title: string
@@ -40,6 +41,9 @@ const Container = styled.div`
 `
 
 type IndexPageProps = {
+  location: {
+    search: string
+  }
   data: {
     allMarkdownRemark: {
       edges: PostListItemType[]
@@ -48,15 +52,25 @@ type IndexPageProps = {
 }
 
 const IndexPage: FunctionComponent<IndexPageProps> = ({
+  location: { search },
   data: {
     allMarkdownRemark: { edges },
   },
 }) => {
+  const parsed: ParsedQuery<string> = queryString.parse(search)
+  const selectedCategory: string =
+    typeof parsed.category !== 'string' || !parsed.category
+      ? 'All'
+      : parsed.category
+  console.log(selectedCategory)
   return (
     <Container>
       <GlobalStyle />
       <Introduction />
-      <CategoryList selectedCategory="All" categoryList={CATEGORY_LIST} />
+      <CategoryList
+        selectedCategory={selectedCategory}
+        categoryList={CATEGORY_LIST}
+      />
       <PostList posts={edges} />
       <Footer />
     </Container>

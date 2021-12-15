@@ -1,15 +1,16 @@
 import React, { FunctionComponent } from 'react'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import { PostFrontmatterType } from 'types/PostItem.types'
 
-interface PostItemProps {
-  title: string
-  date: string
-  categories: string[]
-  summary: string
-  thumbnail: string
-  link: string
-}
+type PostItemProps = PostFrontmatterType & { link: string }
+
+const ThumbnailImage = styled(GatsbyImage)`
+  width: 100%;
+  height: 200px;
+  border-radius: 10px 10px 0 0;
+`
 
 const PostItemWrapper = styled(Link)`
   display: grid;
@@ -22,13 +23,6 @@ const PostItemWrapper = styled(Link)`
   &:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
-`
-
-const ThumbnailImage = styled.img`
-  width: 100%;
-  height: 100%;
-  border-radius: 2px 2px 0 0;
-  object-fit: cover;
 `
 
 const PostItemContent = styled.div`
@@ -87,23 +81,26 @@ const Summary = styled.div`
   opacity: 0.8;
 `
 
-const PostItem: FunctionComponent<PostItemProps> = ({
+const PostItem: FunctionComponent<PostItemProps> = function ({
   title,
   date,
   categories,
   summary,
-  thumbnail,
+  thumbnail: {
+    childImageSharp: { gatsbyImageData },
+  },
   link,
-}) => {
+}) {
   return (
     <PostItemWrapper to={link}>
-      <ThumbnailImage src={thumbnail} alt="Post Item Image" />
+      <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
+
       <PostItemContent>
         <Title>{title}</Title>
         <Date>{date}</Date>
         <Category>
-          {categories.map(category => (
-            <CategoryItem key={category}>{category}</CategoryItem>
+          {categories.map(item => (
+            <CategoryItem key={item}>{item}</CategoryItem>
           ))}
         </Category>
         <Summary>{summary}</Summary>

@@ -32,10 +32,14 @@ const PostListWrapper = styled.div`
 `
 
 type PostListProps = {
+  selectedCategory: string
   posts: PostListItemType[]
 }
 
-const PostList: FunctionComponent<PostListProps> = function ({ posts }) {
+const PostList: FunctionComponent<PostListProps> = function ({
+  selectedCategory,
+  posts,
+}) {
   return (
     <PostListWrapper>
       {posts.map(({ node: { id, frontmatter } }) => (

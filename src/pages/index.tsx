@@ -1,8 +1,7 @@
 import React, { FunctionComponent, useMemo } from 'react'
 import styled from '@emotion/styled'
-import GlobalStyle from 'components/Common/GlobayStyle'
+import Templete from 'components/Common/Template'
 import Introduction from 'components/Main/Introduction'
-import Footer from 'components/Common/Footer'
 import CategoryList, { CategoryListProps } from 'components/Main/CategoryList'
 import PostList, { PostType } from 'components/Main/PostList'
 import { graphql } from 'gatsby'
@@ -82,16 +81,14 @@ const IndexPage: FunctionComponent<IndexPageProps> = ({
     [],
   )
   return (
-    <Container>
-      <GlobalStyle />
+    <Templete>
       <Introduction />
       <CategoryList
         categoryList={categoryList}
         selectedCategory={selectedCategory}
       />
       <PostList posts={edges} selectedCategory={selectedCategory} />
-      <Footer />
-    </Container>
+    </Templete>
   )
 }
 

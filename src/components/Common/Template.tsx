@@ -1,6 +1,6 @@
 import React, { FunctionComponent, ReactNode } from 'react'
 import styled from '@emotion/styled'
-import GlobalStyle from 'components/Common/GlobalStyle'
+import GlobalStyle from './/GlobalStyle'
 import Footer from 'components/Common/Footer'
 
 type TemplateProps = {

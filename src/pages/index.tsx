@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useMemo } from 'react'
 import styled from '@emotion/styled'
-import Templete from 'components/Common/Template'
+import Template from 'components/Common/Template'
 import Introduction from 'components/Main/Introduction'
 import CategoryList, { CategoryListProps } from 'components/Main/CategoryList'
 import PostList, { PostType } from 'components/Main/PostList'
@@ -38,6 +38,13 @@ type IndexPageProps = {
     search: string
   }
   data: {
+    site: {
+      siteMetadata: {
+        title: string
+        description: string
+        siteUrl: string
+      }
+    }
     allMarkdownRemark: {
       edges: PostListItemType[]
     }
@@ -47,6 +54,9 @@ type IndexPageProps = {
 const IndexPage: FunctionComponent<IndexPageProps> = ({
   location: { search },
   data: {
+    site: {
+      siteMetadata: { title, description, siteUrl },
+    },
     allMarkdownRemark: { edges },
   },
 }) => {
@@ -81,14 +91,14 @@ const IndexPage: FunctionComponent<IndexPageProps> = ({
     [],
   )
   return (
-    <Templete>
+    <Template title={title} description={description} url={siteUrl}>
       <Introduction />
       <CategoryList
         categoryList={categoryList}
         selectedCategory={selectedCategory}
       />
       <PostList posts={edges} selectedCategory={selectedCategory} />
-    </Templete>
+    </Template>
   )
 }
 
@@ -96,6 +106,13 @@ export default IndexPage
 
 export const getPostList = graphql`
   query getPostList {
+    site {
+      siteMetadata {
+        title
+        description
+        siteUrl
+      }
+    }
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date, frontmatter___title] }
     ) {

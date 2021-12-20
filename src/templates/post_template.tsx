@@ -7,11 +7,14 @@ import PostContent from 'components/Post/PostContent'
 import CommentWidget from 'components/Post/CommentWidget'
 
 type PostTemplateProps = {
-  // data: {
-  //   allMarkdownRemark: {
-  //     edges: PostPageItemType[
-  //   }
-  // }
+  data: {
+    allMarkdownRemark: {
+      edges: PostPageItemType[]
+    }
+  }
+  location: {
+    href: string
+  }
 }
 
 export type PostPageItemType = {
@@ -25,14 +28,18 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
   data: {
     allMarkdownRemark: { edges },
   },
+  location: { href },
 }) {
   const {
-    node: { html, frontmatter },
+    node: {
+      html,
+      frontmatter: { title, summary, date, categories },
+    },
   } = edges[0]
 
   return (
-    <Template>
-      <PostHead {...frontmatter} />
+    <Template title={title} description={summary} url={href}>
+      <PostHead title={title} date={date} categories={categories} />
       <PostContent html={html} />
       <CommentWidget />
     </Template>
@@ -56,6 +63,7 @@ export const queryMarkdownDataBySlug = graphql`
               childImageSharp {
                 gatsbyImageData
               }
+              publicURL
             }
           }
         }

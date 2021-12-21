@@ -6,6 +6,12 @@ module.exports = {
     siteUrl: 'https://naamukim.github.io',
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
     'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-canonical-urls',

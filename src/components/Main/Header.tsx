@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import styled from '@emotion/styled'
+import { Link } from 'gatsby'
 
 const Background = styled.div`
   width: 100%;
@@ -15,10 +16,11 @@ const Wrapper = styled.div`
   margin: 0 auto;
 `
 
-const TitleDiv = styled.div`
+const TitleDiv = styled(Link)`
   padding-top: 20px;
   display: flex;
   font-size: 20px;
+  cursor: pointer;
 `
 
 const Title = styled.div`
@@ -31,11 +33,11 @@ const SubTitle = styled.div`
   color: #56fca2;
 `
 
-const Introduction: FunctionComponent = () => {
+const Header: FunctionComponent = () => {
   return (
     <Background>
       <Wrapper>
-        <TitleDiv>
+        <TitleDiv to="/">
           <Title>Dev</Title>
           <SubTitle>Namu</SubTitle>
         </TitleDiv>
@@ -44,4 +46,4 @@ const Introduction: FunctionComponent = () => {
   )
 }
 
-export default Introduction
+export default Header

@@ -9,6 +9,10 @@ const FooterWrapper = styled.div`
   padding: 50px 0;
   font-size: 12px;
   text-align: center;
+  line-height: 1.5;
+  @media (max-width: 768px) {
+    font-size: 13px;
+  }
 `
 
 const Footer: FunctionComponent = () => {

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://naamukim.github.io/sitemap/sitemap-index.xml
+Host: https://naamukim.github.io

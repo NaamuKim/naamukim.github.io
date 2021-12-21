@@ -16,7 +16,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
-        siteUrl: 'https://www.naamukim.github.io',
+        siteUrl: 'https://naamukim.github.io',
         stripQueryString: true,
       },
     },

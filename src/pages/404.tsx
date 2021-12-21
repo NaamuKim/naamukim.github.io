@@ -14,7 +14,7 @@ const NotFoundPageWrapper = styled.div`
 const NotFoundText = styled.div`
   font-size: 150px;
   font-weight: 800;
-
+  margin-bottom: 50px;
   @media (max-width: 768px) {
     font-size: 100px;
   }

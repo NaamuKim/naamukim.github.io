@@ -5,14 +5,13 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 const Title = styled.div`
   display: -webkit-box;
-  overflow: hidden;
   overflow-wrap: break-word;
   margin-top: auto;
   text-overflow: ellipsis;
   white-space: normal;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  font-size: 45px;
+  font-size: 38px;
   font-weight: 800;
 `
 

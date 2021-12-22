@@ -33,13 +33,26 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
   const {
     node: {
       html,
-      frontmatter: { title, summary, date, categories },
+      frontmatter: {
+        title,
+        summary,
+        date,
+        categories,
+        thumbnail: {
+          childImageSharp: { gatsbyImageData },
+        },
+      },
     },
   } = edges[0]
 
   return (
     <Template title={title} description={summary} url={href}>
-      <PostHead title={title} date={date} categories={categories} />
+      <PostHead
+        title={title}
+        date={date}
+        categories={categories}
+        thumbnail={gatsbyImageData}
+      />
       <PostContent html={html} />
       <CommentWidget />
     </Template>

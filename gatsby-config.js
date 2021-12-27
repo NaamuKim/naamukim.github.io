@@ -12,7 +12,12 @@ module.exports = {
         policy: [{ userAgent: '*', allow: '/' }],
       },
     },
-    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        output: '/',
+      },
+    },
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {

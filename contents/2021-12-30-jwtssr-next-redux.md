@@ -1,9 +1,9 @@
 ---
 date: '2021-12-30'
 title: 'Next.js에서 redux로 jwt 서버사이드 렌더링하기'
-categories: ['Next.js']
+categories: ['Next.js','Redux']
 summary: '쿠키를 이용하여 토큰을 서버사이드 렌더링하기'
-thumbnail: "./dum.png"
+thumbnail: "./next.png"
 ---
 이 글은 react와 next를 사용한 프로젝트에서 redux를 통해 jwt를 이용하여 사용자 정보를 서버사이드 렌더링 하는 것을 다룬다.
 

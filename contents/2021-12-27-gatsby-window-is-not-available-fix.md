@@ -26,13 +26,13 @@ node.js 환경은 window 객체를 가지고 있지 않다.
 
  이를 해결하기 위해 우리는 두 방법 정도가 있을 것이다.
 
-“조건문에 감싸서 window가 없는 환경에서도 에러가 안나게 만든다.”
+<span style="color:red">“조건문에 감싸서 window가 없는 환경에서도 에러가 안나게 만든다.”</span>
 
 ```jsx
-if( window===undefined) return
+if(window===undefined) return
 ```
 
-“useEffect를 사용하여 서버사이드에서는 문제가 안 생기게 만든다.”
+<span style="color:red">“useEffect를 사용하여 서버사이드에서는 문제가 안 생기게 만든다.”</span>
 
 ```jsx
 const useGoBack = ({ navRef }) => {

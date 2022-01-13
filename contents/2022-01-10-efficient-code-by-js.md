@@ -2,7 +2,7 @@
 date: '2022-01-10'
 title: 'js로 좋은 코드 짜는 것에 대해'
 categories: ['js']
-summary: 'tranform-style: preserve-3d를 이용하여 원근감을 준 이미지 캐루셀'
+summary: 'js clean code tips'
 thumbnail: "./vanilla.png"
 ---
 
@@ -10,14 +10,13 @@ thumbnail: "./vanilla.png"
 
 프로젝트와 공부를 진행하며 수정과 삭제, 추가를 반복해나가겠다.
 
-1. 이미지 소스가 바뀌는 부분들을 객체로 묶어놓는다.
+### 1. 이미지 소스가 바뀌는 부분들을 객체로 묶어놓는다.
 
 이미지 파일의 경로를 입력해 놓는 것은 굉장히 길다. 몇번 안 쓰이더라도 같은 컴포넌트 안에서 이미지가 바뀌는 부분은 객체로 저장해놓고 이름을 지정해 사용과 리팩터링에 유용하다.
 
 이미지가 바뀌거나 내용이 달라졌을 때 해당 객체만 수정하여 리팩터링한다.
 
 예제 코드
-
 ```jsx
 const starImageSourceMap = {
 	empty: "./src/images/icon_empty_star.png",
@@ -26,7 +25,7 @@ const starImageSourceMap = {
 };
 ```
 
-1. 변수를 만들 때 Object Destructing(비구조화 할당)이 가능한가 생각하자
+### 2. 변수를 만들 때 Object Destructing(비구조화 할당)이 가능한가 생각하자
 
 js와 다른 언어가 크게 무슨 점이 다르냐를 생각해보면 js는 브라우저에서 실행되기 때문에 DOM을 움직일 수 있고 이에 따라 DOM 객체들을 다룰 때가 많다.
 
@@ -58,7 +57,6 @@ const { point } = target.dataset;
 비구조화 할당시 기본값을 부여하고 싶다면 대입연산자를 사용하면 된다.\
 
 예제코드
-
 ```jsx
 const { drawableLimitIndex = -1, isOverHalf = false } = payload;
 ```
@@ -81,7 +79,7 @@ offsetX: currentUserPoint를 살펴보면 event.offsetX를 currentUserPoint라�
 
 이러한 방식으로 변수를 구분해줄 수 있다.
 
-1. 조건문을 삼항연산자로 바꿀 방법이 없는 지 생각하자.
+### 3. 조건문을 삼항연산자로 바꿀 방법이 없는 지 생각하자.
 
 삼항연산자는 if문을 짧게 만들어준다.
 
@@ -101,9 +99,7 @@ if(isLoggedIn) {
 ```
 
 잘 보이는 코드 사용을 위해 4줄을 사용해야한다.
-
 이제 삼항연산자로 줄여보자
-
 ```jsx
 isLoggedIn ? '$1.00' : '$2000.00'
 ```
